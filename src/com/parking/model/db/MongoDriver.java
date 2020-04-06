@@ -47,5 +47,9 @@ public class MongoDriver {
 	public MongoDatabase getDB() {
 		return database;
 	}
-
+	
+	@Override
+	public void finalize() {
+	    this.mongoClient.close();
+	}
 }
