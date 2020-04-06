@@ -1,0 +1,38 @@
+<?xml version="1.0" ?> 
+<project name="parking-spots" default="war">
+	<property file = "build.properties" />
+    <path id="compile.classpath">
+    	<fileset dir="${appserver.lib}">
+    	     <include name="*.jar"/>
+    	</fileset>
+        <fileset dir="WebContent/WEB-INF/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+     
+    <target name="init" depends="clean">
+        <mkdir dir="build/classes"/>
+        <mkdir dir="dist" />
+    </target>
+     
+    <target name="compile" depends="init" >
+        <javac destdir="build/classes" debug="false" srcdir="src">
+            <classpath refid="compile.classpath"/>
+        </javac>
+    	<mkdir dir="build/classes/com/parking/resources"/>
+    	<copy file="config.properties" todir="build/classes/com/parking/resources" />
+    </target>
+     
+    <target name="war" depends="compile">
+        <war destfile="dist/parking-spots.war" webxml="WebContent/WEB-INF/web.xml">
+            <fileset dir="WebContent"/>
+            <classes dir="build/classes" />
+        </war>
+    </target>
+     
+    <target name="clean">
+        <delete dir="dist" />
+        <delete dir="build" />
+    </target>
+     
+</project>
