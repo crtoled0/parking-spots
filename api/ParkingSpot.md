@@ -113,8 +113,10 @@ GET http://localhost:8080/parking-spots/ParkingSpot?filter=B0
 Endpoint to create single or multiple parking spots in the system.
 
 ### **Method: POST**
-### **Params:**  N/A
-### **Request Body:** JSON Array Structure of new parking spots  
+### **Params:**  
+N/A
+### **Request Body:** 
+JSON Array Structure of new parking spots  
 
 ### **Request Example:**  
 ```
@@ -154,8 +156,10 @@ BODY:  [{   "identifier": "B005",
 Endpoint to edit Parking Spot.
 
 ### **Method: PUT**
-### **Params:**  N/A
-### **Request Body:** JSON Structure of parking spot to modify
+### **Params:**  
+N/A
+### **Request Body:**  
+JSON Structure of parking spot to modify
 
 ### **Request Example:**  
 ```

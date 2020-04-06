@@ -75,8 +75,10 @@ GET http://localhost:8080/parking-spots/PricePolicy?filter=kw
 Endpoint to create a new policy into the system.
 
 ### **Method: POST**
-### **Params:**  N/A
-### **Request Body:** JSON Structure of new policy  
+### **Params:**  
+N/A
+### **Request Body:**  
+ JSON Structure of new policy  
 
 ### **Request Example:**  
 ```
@@ -113,8 +115,10 @@ BODY:  {
 Endpoint to edit policy from the system.
 
 ### **Method: PUT**
-### **Params:**  N/A
-### **Request Body:** JSON Structure of policy to modify
+### **Params:**  
+N/A
+### **Request Body:**  
+JSON Structure of policy to modify
 
 ### **Request Example:**  
 ```
