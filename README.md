@@ -59,12 +59,12 @@ This small project has an initial design. You can take a look **[HERE](design/in
 Following we have a list of pending items to be enhance/fixed. 
 Each item will be removed as they are addressed.  
 
-- **Proper Exception Distribution:**   
+- ~~**Proper Exception Distribution:**   
 In current solution if there's an exception through a endpoint call 
 life cicle. This is catched and returns error payload and status 500 (Internal Error).
 The idea of this enhancement is to manage each exception with its respective 
 standar status. For instance if endpoint doesn't exist. We should return error 404. 
-In case of unauthorize access error 401 and so on. 
+In case of unauthorize access error 401 and so on.~~ 
 
 - **Add Security to formulas's format:**   
 Currently there's a function that calculates price based on custom formulas that are saved as String.  

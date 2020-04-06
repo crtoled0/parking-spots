@@ -39,15 +39,22 @@ public class ParkingSpotServlet extends HttpServlet {
 		Gson gson = new Gson();
 		response.setContentType("application/json");
 		try {
+			String authToken = request.getHeader("Authorization");
+			if(authToken == null || authToken == "")
+				throw new ParkingException("401", "00401", "Not Authorized");
+
 			String json = this.maintainerCont.find("ParkingSpot", params);			
 			response.setStatus(200);
 			response.getWriter().print(json);
 		} catch (ParkingException e) {
-			response.setStatus(500);
-			Map err = new HashMap();
-			err.put("ok", false);
-			err.put("msg", e.getMessage());			
+			Map err = gson.fromJson(e.getMessage(), Map.class);
+			int status = Integer.valueOf((String)err.get("status")).intValue();
+			response.setStatus(status);
+			err.put("ok", false);			
 			response.getWriter().print(gson.toJson(err, Map.class));			
+		} catch (Exception e) {
+			response.setStatus(500);
+			response.getWriter().print("{\"error\":\""+e.getMessage()+"\"}");	
 		}
 	}
 
@@ -60,15 +67,22 @@ public class ParkingSpotServlet extends HttpServlet {
 		Gson gson = new Gson();
 		response.setContentType("application/json");
 		try {
+			String authToken = request.getHeader("Authorization");
+			if(authToken == null || authToken == "")
+				throw new ParkingException("401", "00401", "Not Authorized");
+
 			String json = this.maintainerCont.create("ParkingSpot", bodyText);			
 			response.setStatus(200);
 			response.getWriter().print(json);
 		} catch (ParkingException e) {
-			response.setStatus(500);
-			Map err = new HashMap();
-			err.put("ok", false);
-			err.put("msg", e.getMessage());			
+			Map err = gson.fromJson(e.getMessage(), Map.class);
+			int status = Integer.valueOf((String)err.get("status")).intValue();
+			response.setStatus(status);
+			err.put("ok", false);			
 			response.getWriter().print(gson.toJson(err, Map.class));			
+		} catch (Exception e) {
+			response.setStatus(500);
+			response.getWriter().print("{\"error\":\""+e.getMessage()+"\"}");	
 		}
 	}
 
@@ -81,15 +95,22 @@ public class ParkingSpotServlet extends HttpServlet {
 		Gson gson = new Gson();
 		response.setContentType("application/json");
 		try {
+			String authToken = request.getHeader("Authorization");
+			if(authToken == null || authToken == "")
+				throw new ParkingException("401", "00401", "Not Authorized");
+
 			String json = this.maintainerCont.save("ParkingSpot", bodyText);			
 			response.setStatus(200);
 			response.getWriter().print(json);
 		} catch (ParkingException e) {
-			response.setStatus(500);
-			Map err = new HashMap();
-			err.put("ok", false);
-			err.put("msg", e.getMessage());			
+			Map err = gson.fromJson(e.getMessage(), Map.class);
+			int status = Integer.valueOf((String)err.get("status")).intValue();
+			response.setStatus(status);
+			err.put("ok", false);			
 			response.getWriter().print(gson.toJson(err, Map.class));			
+		} catch (Exception e) {
+			response.setStatus(500);
+			response.getWriter().print("{\"error\":\""+e.getMessage()+"\"}");	
 		}
 	}
 
@@ -102,19 +123,23 @@ public class ParkingSpotServlet extends HttpServlet {
 		String values = gson.toJson(params, Map.class);
 		Object id =  params.get("id");
 		response.setContentType("application/json");
-		
-		System.out.println(values);
-		System.out.println(id);
 		try {
+			String authToken = request.getHeader("Authorization");
+			if(authToken == null || authToken == "")
+				throw new ParkingException("401", "00401", "Not Authorized");
+
 			String json = this.maintainerCont.delete("ParkingSpot", params);			
 			response.setStatus(200);
 			response.getWriter().print(json);
 		} catch (ParkingException e) {
-			response.setStatus(500);
-			Map err = new HashMap();
-			err.put("ok", false);
-			err.put("msg", e.getMessage());			
+			Map err = gson.fromJson(e.getMessage(), Map.class);
+			int status = Integer.valueOf((String)err.get("status")).intValue();
+			response.setStatus(status);
+			err.put("ok", false);			
 			response.getWriter().print(gson.toJson(err, Map.class));			
+		} catch (Exception e) {
+			response.setStatus(500);
+			response.getWriter().print("{\"error\":\""+e.getMessage()+"\"}");	
 		}
 	}
 

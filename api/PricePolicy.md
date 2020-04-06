@@ -33,7 +33,10 @@ By default the formula to apply is "fa + hp*nh".
 
 Endpoint to retrieve policies from the system.
 
-### **Method: GET**
+### **Method: GET**  
+### **Headers:** 
+- Authorization (mandatory): Must include it although Auth is not yet implemented. 
+So any dummy value for know will grant access to the service
 ### **Params:**  
 - filter (optional): Add keyword to filter returned results. 
 
@@ -74,7 +77,10 @@ GET http://localhost:8080/parking-spots/PricePolicy?filter=kw
 
 Endpoint to create a new policy into the system.
 
-### **Method: POST**
+### **Method: POST**  
+### **Headers:** 
+- Authorization (mandatory): Must include it although Auth is not yet implemented. 
+So any dummy value for know will grant access to the service
 ### **Params:**  
 N/A
 ### **Request Body:**  
@@ -114,7 +120,10 @@ BODY:  {
 
 Endpoint to edit policy from the system.
 
-### **Method: PUT**
+### **Method: PUT**  
+### **Headers:** 
+- Authorization (mandatory): Must include it although Auth is not yet implemented. 
+So any dummy value for know will grant access to the service
 ### **Params:**  
 N/A
 ### **Request Body:**  
@@ -147,7 +156,10 @@ BODY:  {
 
 Endpoint to remove policy from the system.
 
-### **Method: DELETE**
+### **Method: DELETE**  
+### **Headers:** 
+- Authorization (mandatory): Must include it although Auth is not yet implemented. 
+So any dummy value for know will grant access to the service.    
 ### **Params:**  
 - id (mandatory): Identifier name of policy to delete
 

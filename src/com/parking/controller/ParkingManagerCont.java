@@ -27,7 +27,7 @@ public class ParkingManagerCont {
 	public String checkin(Map req) throws ParkingException {
 		String[] carTypeArg = (String[])req.get("carType");
 		if(carTypeArg == null)
-			throw new ParkingException("Field carType is Mandatory");
+			throw new ParkingException("400","00400","Field carType is Mandatory");
 		
 		String carType = (String)carTypeArg[0];
 		Gson gson = new Gson();
@@ -42,7 +42,7 @@ public class ParkingManagerCont {
 		
 		String[] parkIdentifierArg = (String[])req.get("parkIdentifier");
 		if(parkIdentifierArg == null)
-			throw new ParkingException("Field parkIdentifier is Mandatory");
+			throw new ParkingException("400","00400","Field parkIdentifier is Mandatory");
 		
 		String parkIdentifier = (String)parkIdentifierArg[0];
 		Gson gson = new Gson();
@@ -56,7 +56,7 @@ public class ParkingManagerCont {
 		
 		String[] parkIdentifierArg = (String[])req.get("parkIdentifier");
 		if(parkIdentifierArg == null)
-			throw new ParkingException("Field parkIdentifier is Mandatory");
+			throw new ParkingException("400","00400","Field parkIdentifier is Mandatory");
 		
 		String parkIdentifier = (String)parkIdentifierArg[0];
 		Gson gson = new Gson();
@@ -93,7 +93,7 @@ public class ParkingManagerCont {
 			System.out.println(result);
 			total = result.floatValue();
 		} catch (ScriptException e) {
-			throw new ParkingException("Failed use of formula associated to price policy "+spot.getPricePolicy()+ ". Please check formula and try again");			
+			throw new ParkingException("501","00501","Failed use of formula associated to price policy "+spot.getPricePolicy()+ ". Please check formula and try again");			
 		}		
 		return total;
 	}

@@ -1,9 +1,5 @@
 package com.parking.exception;
 
-import java.util.List;
-
-import com.google.gson.Gson;
-
 public class ParkingException extends Exception {
 
 	private static final long serialVersionUID = 1L;
@@ -12,8 +8,11 @@ public class ParkingException extends Exception {
 	}
 
 	public ParkingException(String message) {
-		super(message);
-		// TODO Auto-generated constructor stub
+		super("{\"status\":\"500\",\"errorCode\":\"500\",\"msg\":\""+(message).replaceAll("[\"\\[\\]]", "'")+"\"}");
+	}
+	
+	public ParkingException(String status, String errorCode, String message) {
+		super("{\"status\":\""+status+"\",\"errorCode\":\""+errorCode+"\",\"msg\":\""+(message).replaceAll("[\"\\[\\]]", "'")+"\"}");
 	}
 	
 	public ParkingException(Throwable cause) {
@@ -30,5 +29,4 @@ public class ParkingException extends Exception {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
-
 }

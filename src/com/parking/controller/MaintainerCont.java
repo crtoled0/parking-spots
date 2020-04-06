@@ -1,5 +1,6 @@
 package com.parking.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ public class MaintainerCont {
 	
 	public String find(String model, Map req) throws ParkingException {
 		Gson gson = new Gson();		
-		try {
+		
 			String[] filters = (String[])req.get("filter");
 			if(model.equalsIgnoreCase("PricePolicy")) {
 				List<PricePolicyPO> res = (filters != null && filters.length > 0)?this.pricePolMod.find(filters[0]):this.pricePolMod.find();			
@@ -34,19 +35,12 @@ public class MaintainerCont {
 				return "{\"ok\": true,\"items\": "+gson.toJson(res, List.class)+"}";
 			}
 			else {
-				throw new ParkingException("Wrong Parameters, Please check and try again");
+				throw new ParkingException("404","00404","Wrong Endpoint, Please check and try again");
 			}
-		}
-		catch (Exception e) {
-			throw new ParkingException(e.getMessage());
-		}
-		
-			
 	}
 	
 	public String save(String model, String body) throws ParkingException {
 		Gson gson = new Gson();
-		try {
 			if(model.equalsIgnoreCase("PricePolicy")) {
 				PricePolicyPO obj = gson.fromJson(body, PricePolicyPO.class);
 				if(this.pricePolMod.isValid(obj))
@@ -60,17 +54,13 @@ public class MaintainerCont {
 				return "{\"ok\": true}";
 			}
 			else {
-				throw new ParkingException("Wrong Parameters, Please check and try again");
+				throw new ParkingException("404","00404","Wrong Parameters, Please check and try again");
 			}
-		}
-		catch(Exception ex){
-			throw new ParkingException(ex.getMessage());
-		}
+		
 	}
 	
 	public String create(String model, String body) throws ParkingException {
 		Gson gson = new Gson();
-		try {
 			if(model.equalsIgnoreCase("PricePolicy")) {
 				PricePolicyPO obj = gson.fromJson(body, PricePolicyPO.class);
 				if(this.pricePolMod.isValid(obj))
@@ -79,27 +69,31 @@ public class MaintainerCont {
 			}
 			else if(model.equalsIgnoreCase("ParkingSpot")) {
 				System.out.println(body);
-    			ParkingSpotPO[] arr = gson.fromJson(body, ParkingSpotPO[].class);
-    			List<ParkingSpotPO> lst = Arrays.asList(arr);
+				ParkingSpotPO[] arr;
+				List<ParkingSpotPO> lst;
+				try {
+					arr = gson.fromJson(body, ParkingSpotPO[].class);
+					lst = Arrays.asList(arr);
+				}catch (Exception e) {
+					ParkingSpotPO obj = gson.fromJson(body, ParkingSpotPO.class);
+					lst = new ArrayList<ParkingSpotPO>(); 
+					lst.add(obj);
+				}
 				if(this.parkSpotMod.isValid(lst))
 					this.parkSpotMod.create(lst);
 				return "{\"ok\": true}";
 			}
 			else {
-				throw new ParkingException("Wrong Parameters, Please check and try again");
-			}
-		}
-		catch(Exception ex){
-			throw new ParkingException(ex.getMessage());
-		}
+				throw new ParkingException("404","00404","Wrong Endpoint, Please check and try again");
+			}				
 	}
 	
 	public String delete(String model, Map req) throws ParkingException {
 		Gson gson = new Gson();
 		String[] ids = (String[]) req.get("id");
 		if(ids == null || ids.length == 0)
-			throw new ParkingException("Policy name to remove is mandatory ");
-		try {
+			throw new ParkingException("400","00400","Policy name to remove is mandatory ");
+		
 			if(model.equalsIgnoreCase("PricePolicy")) {
 				long deleted = this.pricePolMod.delete(ids[0]);					
 				return "{\"ok\": " +(new Boolean(deleted>0)).toString()+ "}";
@@ -109,11 +103,7 @@ public class MaintainerCont {
 				return "{\"ok\": " +(new Boolean(deleted>0)).toString()+ "}";
 			}
 			else {
-				throw new ParkingException("Wrong Parameters, Please check and try again");
-			}
-		}
-		catch(Exception ex){
-			throw new ParkingException(ex.getMessage());
-		}
+				throw new ParkingException("404","00404","Wrong Endpoint, Please check and try again");
+			}		
 	}
 }

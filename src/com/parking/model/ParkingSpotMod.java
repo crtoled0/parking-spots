@@ -53,11 +53,11 @@ public class ParkingSpotMod {
 	public void create(ParkingSpotPO obj) throws ParkingException {		
 	//	MongoCursor<ParkingSlotPO> cursor = this.coll.find(eq("identifier",obj.getIdentifier())).iterator();
 	//	if(cursor.hasNext())
-		//	throw new ParkingException("Parking Slot "+ obj.getIdentifier() + " already exist");
+		//	throw new ParkingException("400","00400","Parking Slot "+ obj.getIdentifier() + " already exist");
 		try {
 			this.coll.insertOne(obj);
 		} catch (Exception e) {
-			throw new ParkingException(e.getMessage());
+			throw new ParkingException("400","00400",e.getMessage().toString());
 		}
         
 	}
@@ -67,7 +67,7 @@ public class ParkingSpotMod {
 		try {
 			this.coll.insertMany(objList);
 		} catch (Exception e) {
-			throw new ParkingException(e.getMessage());
+			throw new ParkingException("400","00400",e.getMessage().toString());
 		}        
 	}
 	
@@ -86,7 +86,7 @@ public class ParkingSpotMod {
 		if(cursor.hasNext())
 			return cursor.next();
 		else
-			throw new ParkingException("No Parking Spot Available for "+carType);	
+			throw new ParkingException("204","00204","No Parking Spot Available for "+carType);	
 		
     }
 	
@@ -95,7 +95,7 @@ public class ParkingSpotMod {
 		if(cursor.hasNext())
 			return cursor.next();
 		else
-			throw new ParkingException("Parking Spot "+parkIdentifier+" doesn't exist. ");	
+			throw new ParkingException("400","00400","Parking Spot "+parkIdentifier+" doesn't exist. ");	
 		
     }
 	
@@ -123,7 +123,7 @@ public class ParkingSpotMod {
 		}
 		
 		if(!allOK)
-			throw new ParkingException(msg);
+			throw new ParkingException("400","00400",msg);
 		
 		return allOK;
 	}

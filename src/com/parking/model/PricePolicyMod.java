@@ -65,7 +65,7 @@ public class PricePolicyMod {
 			this.coll.insertOne(obj);
 			this.refreshPolicyList();
 		} catch (Exception e) {
-			throw new ParkingException(e.getMessage());
+			throw new ParkingException("400","00400",e.getMessage().toString());
 		}
 		
 	}
@@ -75,7 +75,8 @@ public class PricePolicyMod {
 			this.coll.insertMany(objList);
 			this.refreshPolicyList();
 		} catch (Exception e) {
-			throw new ParkingException(e.getMessage());
+			e.printStackTrace();
+			throw new ParkingException("400","00400",e.getMessage().toString());
 		}        
 	}
 	
@@ -94,7 +95,7 @@ public class PricePolicyMod {
 		if(cursor.hasNext())
 			return cursor.next();
 		else
-			throw new ParkingException("Price Policy "+name+" doesn't exist. ");	
+			throw new ParkingException("400","00400", "Price Policy "+name+" doesn't exist. ");	
 		
     }
 	
@@ -109,7 +110,7 @@ public class PricePolicyMod {
 			allOK = false;
 		}
 		if(!allOK)
-			throw new ParkingException(msg.toString());
+			throw new ParkingException("400","00400", msg.toString());
 		
 		return allOK;
 	}

@@ -29,6 +29,9 @@ Each parking spot is composed of following attributes:
 Endpoint to retrieve parking spots from the system.
 
 ### **Method: GET**
+### **Headers:** 
+- Authorization (mandatory): Must include it although Auth is not yet implemented. 
+So any dummy value for know will grant access to the service  
 ### **Params:**  
 - filter (optional): Add keyword to filter returned results. 
 
@@ -113,6 +116,9 @@ GET http://localhost:8080/parking-spots/ParkingSpot?filter=B0
 Endpoint to create single or multiple parking spots in the system.
 
 ### **Method: POST**
+### **Headers:**   
+- Authorization (mandatory): Must include it although Auth is not yet implemented. 
+So any dummy value for know will grant access to the service  
 ### **Params:**  
 N/A
 ### **Request Body:** 
@@ -155,7 +161,10 @@ BODY:  [{   "identifier": "B005",
 
 Endpoint to edit Parking Spot.
 
-### **Method: PUT**
+### **Method: PUT**  
+### **Headers:** 
+- Authorization (mandatory): Must include it although Auth is not yet implemented. 
+So any dummy value for know will grant access to the service  
 ### **Params:**  
 N/A
 ### **Request Body:**  
@@ -190,6 +199,9 @@ BODY:  {
 Endpoint to remove parking spot from the system.
 
 ### **Method: DELETE**
+### **Headers:** 
+- Authorization (mandatory): Must include it although Auth is not yet implemented. 
+So any dummy value for know will grant access to the service  
 ### **Params:**  
 - id (mandatory): Identifier of parking spot to remove.
 

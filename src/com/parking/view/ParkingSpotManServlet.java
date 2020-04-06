@@ -42,11 +42,14 @@ public class ParkingSpotManServlet extends HttpServlet {
 			response.setStatus(200);
 			response.getWriter().print(json);
 		} catch (ParkingException e) {
-			response.setStatus(500);
-			Map err = new HashMap();
-			err.put("ok", false);
-			err.put("msg", e.getMessage());			
+			Map err = gson.fromJson(e.getMessage(), Map.class);
+			int status = Integer.valueOf((String)err.get("status")).intValue();
+			response.setStatus(status);
+			err.put("ok", false);			
 			response.getWriter().print(gson.toJson(err, Map.class));			
+		} catch (Exception e) {
+			response.setStatus(500);
+			response.getWriter().print("{\"error\":\""+e.getMessage()+"\"}");	
 		}
 	}
 
@@ -62,11 +65,14 @@ public class ParkingSpotManServlet extends HttpServlet {
 			response.setStatus(200);
 			response.getWriter().print(json);
 		} catch (ParkingException e) {
-			response.setStatus(500);
-			Map err = new HashMap();
-			err.put("ok", false);
-			err.put("msg", e.getMessage());			
+			Map err = gson.fromJson(e.getMessage(), Map.class);
+			int status = Integer.valueOf((String)err.get("status")).intValue();
+			response.setStatus(status);
+			err.put("ok", false);			
 			response.getWriter().print(gson.toJson(err, Map.class));			
+		} catch (Exception e) {
+			response.setStatus(500);
+			response.getWriter().print("{\"error\":\""+e.getMessage()+"\"}");	
 		}
 	}
 	
@@ -82,11 +88,14 @@ public class ParkingSpotManServlet extends HttpServlet {
 			response.setStatus(200);
 			response.getWriter().print(json);
 		} catch (ParkingException e) {
-			response.setStatus(500);
-			Map err = new HashMap();
-			err.put("ok", false);
-			err.put("msg", e.getMessage());			
+			Map err = gson.fromJson(e.getMessage(), Map.class);
+			int status = Integer.valueOf((String)err.get("status")).intValue();
+			response.setStatus(status);
+			err.put("ok", false);			
 			response.getWriter().print(gson.toJson(err, Map.class));			
+		} catch (Exception e) {
+			response.setStatus(500);
+			response.getWriter().print("{\"error\":\""+e.getMessage()+"\"}");	
 		}
 	}
 
