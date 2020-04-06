@@ -26,8 +26,7 @@ In case of select ‘Create’ or ‘Edit’. System returns form with policy in
 •	Name: Identifier for policy.  
 •	Hour Price (hp): Price per hour that car uses parking spot. Mandatory field  
 •	Fixed Amount (fa):  Fixed price to be use. By default is 0.  
-•	Price Formula: Formula applied to calculate price to pay. By default the formula is ‘fa + hp*nh’. Being nh the number of hours that car used parking spot.  
-•	Apply to: List of parking spots this Parking Policy will be applied. By default is ‘ALL’, meaning that the policy will be applied to all spots as second priority.  
+•	Price Formula: Formula applied to calculate price to pay. By default the formula is ‘fa + hp*nh’. Being nh the number of hours that car used parking spot.   
 User save changes. System apply changes internally.  
 End of case of use.  
 
