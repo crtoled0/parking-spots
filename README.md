@@ -48,7 +48,7 @@ At this point we should be ready to start testing out endpoints.
 
 ## API 
 
-Watch application API **[HERE](api/index.md#API-Parking-Spots)**  
+Application Rest API **[HERE](api/index.md#API-Parking-Spots)**  
 
 ## Design and Architecture 
 
@@ -56,7 +56,7 @@ This small project has an initial design. You can take a look **[HERE](design/in
 
 ## Testing 
 
-Data Populate and test plan **[HERE](TestPlan/README.md#JMeter-Test-Plan)**  
+Data Populate and Test Plan **[HERE](TestPlan/README.md#JMeter-Test-Plan)**  
 
 ## Pending Enhancements and Observations.
 
