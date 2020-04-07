@@ -3,11 +3,11 @@ Back-End Application to manage parking spots
 
 ## Prerequisites
 
-Java JDK 9 or higher.   
-MongoDB 4.0.10 or higher.  
-Any Application Server that support java web applications.  
-For the purpose of this project Apache Tomcat/9.0.33 was used.  
-Apache ANT.  
+- Java JDK 9 or higher.   
+- MongoDB 4.0.10 or higher.  
+- Any Application Server that support java web applications.  
+  For the purpose of this project Apache Tomcat/9.0.33 was used.  
+- Apache ANT.  
 
 ## Installation
 
