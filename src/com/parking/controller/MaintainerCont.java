@@ -5,6 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 import com.google.gson.Gson;
 import com.parking.exception.ParkingException;
 import com.parking.model.ParkingSpotMod;
@@ -43,8 +47,11 @@ public class MaintainerCont {
 		Gson gson = new Gson();
 			if(model.equalsIgnoreCase("PricePolicy")) {
 				PricePolicyPO obj = gson.fromJson(body, PricePolicyPO.class);
-				if(this.pricePolMod.isValid(obj))
-					this.pricePolMod.save(obj);				
+				boolean allOK = this.pricePolMod.isValid(obj);
+				if(allOK && obj.getPriceFormula() != null)
+					allOK = this.validateFormula(obj.getPriceFormula());				
+				if(allOK)
+					this.pricePolMod.save(obj);						
 				return "{\"ok\": true}";
 			}
 			else if(model.equalsIgnoreCase("ParkingSpot")) {
@@ -55,16 +62,18 @@ public class MaintainerCont {
 			}
 			else {
 				throw new ParkingException("404","00404","Wrong Parameters, Please check and try again");
-			}
-		
+			}		
 	}
 	
 	public String create(String model, String body) throws ParkingException {
 		Gson gson = new Gson();
 			if(model.equalsIgnoreCase("PricePolicy")) {
 				PricePolicyPO obj = gson.fromJson(body, PricePolicyPO.class);
-				if(this.pricePolMod.isValid(obj))
-					this.pricePolMod.create(obj);		
+				boolean allOK = this.pricePolMod.isValid(obj);
+				if(allOK && obj.getPriceFormula() != null)
+					allOK = this.validateFormula(obj.getPriceFormula());				
+				if(allOK)
+					this.pricePolMod.create(obj);
 				return "{\"ok\": true}";
 			}
 			else if(model.equalsIgnoreCase("ParkingSpot")) {
@@ -105,5 +114,29 @@ public class MaintainerCont {
 			else {
 				throw new ParkingException("404","00404","Wrong Endpoint, Please check and try again");
 			}		
+	}
+	
+	private boolean validateFormula(String form) throws ParkingException {
+		String allowedChars = "[0-9\\.\\?\\(\\)\\+\\-\\/\\%\\*\\:\\<\\>\\s\\=]|nh|fa|hp";	
+		String alloChrStr = "numeric ? : = + - * / % . nh fa hp";
+		String res = form.replaceAll(allowedChars, "");
+		System.out.println(res);
+		System.out.println(res.length());
+		if(res.length() > 0) {
+			throw new ParkingException("400","00400","Formula contains the following not allowed characters ' "+res+" '. Please check and try again. Allowed Characters are '"+alloChrStr+"'");
+		}
+		form = form.replaceAll("fa", String.valueOf((3)));
+		form = form.replaceAll("hp", String.valueOf((3)));
+		form = form.replaceAll("nh", String.valueOf((3)));
+		System.out.println("testing dummy form");
+		ScriptEngineManager manager = new ScriptEngineManager();
+		ScriptEngine engine = manager.getEngineByName("js");
+		try {
+			Double result = (Double) engine.eval("parseFloat("+form+")");
+			System.out.println(result);
+		} catch (ScriptException e) {
+			throw new ParkingException("400","00400"," Mathematical error on formula. Tested example '"+form+"' failed. Please check formula and try again");			
+		}		
+		return true;
 	}
 }

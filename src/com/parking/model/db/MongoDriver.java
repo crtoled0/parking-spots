@@ -19,6 +19,7 @@ public class MongoDriver {
 	private MongoClient mongoClient;
 	private MongoDatabase database;
 	private CodecRegistry pojoCodecRegistry;
+	private boolean isMongoDown = true;
 	
 	private MongoDriver() {
 		Properties prop = new Properties();
@@ -35,13 +36,19 @@ public class MongoDriver {
         this.pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
                 				 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         this.database = this.mongoClient.getDatabase(dbName).withCodecRegistry(pojoCodecRegistry);
+        this.isMongoDown = false;
 	}
 	
+	public boolean isMongoDown() {
+		return isMongoDown;
+	}
+
 	public static MongoDriver getInstance() {
-		if(MongoDriver._instance == null)
+		if(MongoDriver._instance == null || MongoDriver._instance.mongoClient == null)
 			return new MongoDriver();
-		else 
+		else {
 			return MongoDriver._instance;
+		}	
 	}
 
 	public MongoDatabase getDB() {
@@ -51,5 +58,7 @@ public class MongoDriver {
 	@Override
 	public void finalize() {
 	    this.mongoClient.close();
+	    this.mongoClient = null;
+	    this.isMongoDown = true;
 	}
 }

@@ -47,9 +47,10 @@ public class ParkingManagerCont {
 		String parkIdentifier = (String)parkIdentifierArg[0];
 		Gson gson = new Gson();
 		ParkingSpotPO spot = this.partSpotMod.getSpotByIdentifier(parkIdentifier);
-		float toPay = this.calculatePrice(spot);		
+		float toPay = this.calculatePrice(spot);
+		spot.setToPay(toPay);
 		spot = this.partSpotMod.save(spot);		
-		return "{\"ok\":true, \"spot\": \""+spot.getIdentifier()+"\",\"type\":\""+spot.getType()+"\", \"total\": "+toPay+"}";
+		return "{\"ok\":true, \"spot\": \""+spot.getIdentifier()+"\",\"type\":\""+spot.getType()+"\", \"checkedIn\":\""+spot.getCheckedIn().toString()+"\", \"total\": "+toPay+"}";
 	}
 	
 	public String confirm(Map req) throws ParkingException {
@@ -61,10 +62,16 @@ public class ParkingManagerCont {
 		String parkIdentifier = (String)parkIdentifierArg[0];
 		Gson gson = new Gson();
 		ParkingSpotPO spot = this.partSpotMod.getSpotByIdentifier(parkIdentifier);
+		if(spot.getToPay() == null) {
+			throw new ParkingException("400","00400","You need to checkout spot "+spot.getIdentifier()+" before confirm payment");
+		}
+		float toPay = spot.getToPay().floatValue();
+		String checkedIn = spot.getCheckedIn().toString();
 		spot.setCheckedIn(null);
 		spot.setAvailable(true);
+		spot.setToPay(null);
 		spot = this.partSpotMod.save(spot);		
-		return "{\"ok\":true, \"spot\": \""+spot.getIdentifier()+"\",\"type\":\""+spot.getType()+"\"}";	
+		return "{\"ok\":true, \"spot\": \""+spot.getIdentifier()+"\",\"type\":\""+spot.getType()+"\", \"checkedIn\":\""+checkedIn+"\",\"payed\":"+toPay+"}";	
 	}
 	
 	private float calculatePrice(ParkingSpotPO spot) throws ParkingException {

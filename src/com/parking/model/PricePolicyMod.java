@@ -16,16 +16,33 @@ import com.mongodb.client.model.Indexes;
 import com.mongodb.client.result.DeleteResult;
 import com.parking.exception.ParkingException;
 import com.parking.model.db.MongoDriver;
+import com.parking.model.pojo.ParkingSpotPO;
 import com.parking.model.pojo.PricePolicyPO;
 
 
 public class PricePolicyMod {
 	
 	private static List<String> pricePolicyIds;
+	MongoDriver db;
 	private MongoCollection<PricePolicyPO> coll;
 	
 	
+	public PricePolicyMod() {
+		this.db = MongoDriver.getInstance();		
+		this.coll =  this.db.getDB().getCollection("PricePolicy", PricePolicyPO.class);
+		IndexOptions indexOptions = new IndexOptions().unique(true);
+		this.coll.createIndex(Indexes.ascending("name"), indexOptions);
+		this.refreshPolicyList();
+	}
+	
+	private void refreshMongoConnection() {
+		this.db = MongoDriver.getInstance();		
+		this.coll =  this.db.getDB().getCollection("PricePolicy", PricePolicyPO.class);
+	}
+	
 	private void refreshPolicyList() {
+		if(this.db.isMongoDown())
+			this.refreshMongoConnection();
 		MongoCursor<PricePolicyPO> cursor = this.coll.find().iterator();
 		PricePolicyMod.pricePolicyIds = new ArrayList<String>();
 		while(cursor.hasNext())
@@ -34,17 +51,11 @@ public class PricePolicyMod {
 	
 	public static List<String> getPricePolicyIds() {
 		return PricePolicyMod.pricePolicyIds;
-	}
-	
-	public PricePolicyMod() {
-		MongoDriver db = MongoDriver.getInstance();		
-		this.coll =  db.getDB().getCollection("PricePolicy", PricePolicyPO.class);
-		IndexOptions indexOptions = new IndexOptions().unique(true);
-		this.coll.createIndex(Indexes.ascending("name"), indexOptions);
-		this.refreshPolicyList();
-	}
+	}	
 	
 	public List<PricePolicyPO> find(String filter) {
+		if(this.db.isMongoDown())
+			this.refreshMongoConnection();
 		Bson filters = regex("name", filter, "ig");
 		MongoCursor<PricePolicyPO> cursor = this.coll.find(filters).iterator();
 		List<PricePolicyPO> list = new ArrayList<PricePolicyPO>(); 
@@ -53,6 +64,8 @@ public class PricePolicyMod {
 		return  list;
 	}
 	public List<PricePolicyPO> find() {
+		if(this.db.isMongoDown())
+			this.refreshMongoConnection();
 		MongoCursor<PricePolicyPO> cursor = this.coll.find().iterator();
 		List<PricePolicyPO> list = new ArrayList<PricePolicyPO>(); 
 		while(cursor.hasNext())
@@ -60,8 +73,10 @@ public class PricePolicyMod {
 		return  list;
 	}
 	
-	public void create(PricePolicyPO obj) throws ParkingException {		
-		try {
+	public void create(PricePolicyPO obj) throws ParkingException {
+		if(this.db.isMongoDown())
+			this.refreshMongoConnection();
+		try {			
 			this.coll.insertOne(obj);
 			this.refreshPolicyList();
 		} catch (Exception e) {
@@ -70,7 +85,9 @@ public class PricePolicyMod {
 		
 	}
 	
-	public void create(List<PricePolicyPO> objList) throws ParkingException {	
+	public void create(List<PricePolicyPO> objList) throws ParkingException {
+		if(this.db.isMongoDown())
+			this.refreshMongoConnection();
 		try {
 			this.coll.insertMany(objList);
 			this.refreshPolicyList();
@@ -81,16 +98,22 @@ public class PricePolicyMod {
 	}
 	
 	public PricePolicyPO save(PricePolicyPO obj) {		
+		if(this.db.isMongoDown())
+			this.refreshMongoConnection();
         return this.coll.findOneAndReplace(eq("name", obj.getName()), obj);
 	}
 	
 	
 	public long delete(String name) {
+		if(this.db.isMongoDown())
+			this.refreshMongoConnection();
 		DeleteResult res = this.coll.deleteMany(eq("name", name));
 		return res.getDeletedCount();
 	}
 	
-	public PricePolicyPO getPricePolicyByName(String name) throws ParkingException {		
+	public PricePolicyPO getPricePolicyByName(String name) throws ParkingException {	
+		if(this.db.isMongoDown())
+			this.refreshMongoConnection();
 		MongoCursor<PricePolicyPO> cursor = this.coll.find(eq("name", name)).iterator();
 		if(cursor.hasNext())
 			return cursor.next();
@@ -114,51 +137,4 @@ public class PricePolicyMod {
 		
 		return allOK;
 	}
-
-	
-	
-	/**
-	public class ObjectIdTypeAdapter extends TypeAdapter<ObjectId> {
-	    @Override
-	    public void write(final JsonWriter out, final ObjectId value) throws IOException {
-	        out.beginObject()
-	           .name("$oid")
-	           .value(value.toString())
-	           .endObject();
-	    }
-
-	    @Override
-	    public ObjectId read(final JsonReader in) throws IOException {
-	        in.beginObject();
-	        assert "$oid".equals(in.nextName());
-	        String objectId = in.nextString();
-	        in.endObject();
-	        return new ObjectId(objectId);
-	    }
-	}
-	**/
-	
-
-	
-	public static void main(String argv[]) {
-		
-		PricePolicyPO policy = new PricePolicyPO("policy-50kw-weekend",80);
-		PricePolicyMod polMod = new PricePolicyMod();
-		//polMod.create(policy);
-		List<PricePolicyPO> res = polMod.find();
-		Iterator<PricePolicyPO> it = res.iterator();
-		while(it.hasNext()) {
-			PricePolicyPO ob = it.next();			
-			
-	//		System.out.println(ob.getId() + " :: " +ob.getName() + " :: " + ob.getPriceFormula());
-		}
-		
-		//Gson conv = new Gson();
-	   // 		System.out.println(strRes);
-		//StringEntity str = new StringEntity(strRes, HTTP.UTF_8);
-
-		
-	}
-		
-
 }

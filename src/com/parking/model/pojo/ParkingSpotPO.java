@@ -14,6 +14,7 @@ public class ParkingSpotPO {
 	private String pricePolicy;
 	private boolean available = true;
 	private Instant checkedIn;
+	private Float toPay;
 
 	public ParkingSpotPO() {
 		// TODO Auto-generated constructor stub
@@ -37,6 +38,19 @@ public class ParkingSpotPO {
 		this.pricePolicy = pricePolicy;
 		this.available = available;
 		this.checkedIn = checkedIn;
+	}
+
+	
+	public Float getToPay() {
+		return toPay;
+	}
+	
+	public void setToPay(float toPay) {
+		this.toPay = new Float(toPay);
+	}
+	
+	public void setToPay(Float toPay) {
+		this.toPay = toPay;
 	}
 
 

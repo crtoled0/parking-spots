@@ -54,6 +54,10 @@ Watch application API **[HERE](api/index.md#API-Parking-Spots)**
 
 This small project has an initial design. You can take a look **[HERE](design/index.md#Design-Project-Parking-Spots)**  
 
+## Testing 
+
+Data Populate and test plan **[HERE](TestPlan/README.md#JMeter-Test-Plan)**  
+
 ## Pending Enhancements and Observations.
 
 Following we have a list of pending items to be enhance/fixed. 
@@ -66,9 +70,9 @@ The idea of this enhancement is to manage each exception with its respective
 standar status. For instance if endpoint doesn't exist. We should return error 404. 
 In case of unauthorize access error 401 and so on.~~ 
 
-- **Add Security to formulas's format:**   
+- ~~**Add Security to formulas's format:**   
 Currently there's a function that calculates price based on custom formulas that are saved as String.  
-We need to make sure than that formula doesn't include malware code. Avoiding any type of code injection.    
+We need to make sure than that formula doesn't include malware code. Avoiding any type of code injection.~~    
 
 - **Add Auth Security Components:**  
 Currently this application is not handlering proper authentication for private endpoints. 
