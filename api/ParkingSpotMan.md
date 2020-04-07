@@ -77,8 +77,9 @@ PUT http://localhost:8080/parking-spots/ParkingSpotMan?parkIdentifier=B006
 {
     "ok": true,
     "spot": "B006",
-    "type": "50kw",
-    "total": 16.0
+    "type": "20kw",
+    "checkedIn": "2020-04-07T19:00:00.382Z",
+    "total": 10.0
 }
 ```
 
@@ -105,7 +106,9 @@ POST http://localhost:8080/parking-spots/ParkingSpotMan?parkIdentifier=B006
 {
     "ok": true,
     "spot": "B006",
-    "type": "50kw"
+    "type": "20kw",
+    "checkedIn": "2020-04-07T19:00:00.382Z",
+    "payed": 10.0
 }
 ```
 
