@@ -2,6 +2,25 @@
 
 # Design Project Parking-Spots
 
+## Requirements  
+
+A toll parking contains multiple parking slots of different types :  
+
+- The standard parking slots for sedan cars (gasoline-powered)
+- Parking slots with 20kw power supply for electric cars
+- Parking slots with 50kw power supply for electric cars 20kw.  
+- Electric cars cannot use 50kw power supplies and vice-versa.  
+
+Every Parking is free to implement is own pricing policy :   
+- Some only bills their customer for each hour spent in the parking (nb hours * hour price)  
+- Some other bill a fixed amount + each hour spent in the parking (fixed amount + nb hours * hour  
+price)  
+
+In the future, there will be others pricing policies.  
+Cars of all types come in and out randomly, the API must :  
+- Send them to the right parking slot of refuse them if there is no slot (of the right type) left.  
+- Mark the parking slot as Free when the car leaves it  
+- Bill the customer when the car leaves  
 
 ## Use Case 
 

@@ -45,14 +45,13 @@ We now need to deploy this war file in your application server.
 
 At this point we should be ready to start testing out endpoints. 
 
+## Requirements, Design and Architecture 
+
+This small project has an initial design. You can take a look **[HERE](design/index.md#Design-Project-Parking-Spots)**  
 
 ## API 
 
 Application Rest API **[HERE](api/index.md#API-Parking-Spots)**  
-
-## Design and Architecture 
-
-This small project has an initial design. You can take a look **[HERE](design/index.md#Design-Project-Parking-Spots)**  
 
 ## Testing 
 
