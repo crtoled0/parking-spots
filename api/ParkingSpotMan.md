@@ -13,8 +13,8 @@ can release a parking spot and mark it as available.
 
 ## Services
 
-- [Reserve Available Spot (Checkin)](#Reserve-Available-Spot-(Checkin)).
-- [Checkout Visit (Checkout)](#Checkout-Visit-(Checkout)).  
+- [Reserve Available Spot (Checkin)](#Reserve-Available-Spot-Checkin).
+- [Checkout Visit (Checkout)](#Checkout-Visit-Checkout).  
 - [Confirm Payment](#Confirm-Payment).  
 
 -----------
