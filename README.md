@@ -1,17 +1,15 @@
 # parking-spots
+
 Back-End Application to manage parking spots
 
-## Prerequisites
-
+## Prerequisites  
 - Java JDK 9 or higher.   
 - MongoDB 4.0.10 or higher.  
 - Any Application Server that support java web applications.  
   For the purpose of this project Apache Tomcat/9.0.33 was used.  
 - Apache ANT.  
-
-## Installation
-
-
+-----------------------
+## Installation  
 - Step 1:  Download project.
 ```
 git clone https://github.com/wutzcrtoledo/parking-spots.git
@@ -36,29 +34,34 @@ property "mongo.db" is created in your local MongoDB.
 - Step 3: Build Project.  
 Open a terminal in root folder of our project and execute build.xml. 
 ```
-ANT
+> ANT
 ```  
 
 - Step 4: If everything went well. We should see a folder /dist.
-Inside we'll find parking-spots.war file.  
+Inside we'll find 'parking-spots.war' file.  
 We now need to deploy this war file in your application server.  
 
-At this point we should be ready to start testing out endpoints. 
+At this point. Backend application should be listening fo requests.   
+We can start running our endpoints. 
 
-## Requirements, Design and Architecture 
+-----------------------
 
+## Requirements, Design and Architecture    
 This small project has an initial design. You can take a look **[HERE](design/index.md#Design-Project-Parking-Spots)**  
 
-## API 
+-----------------------
 
+## API  
 Application Rest API **[HERE](api/index.md#API-Parking-Spots)**  
 
-## Testing 
+-----------------------
 
+## Testing  
 Data Populate and Test Plan **[HERE](TestPlan/README.md#JMeter-Test-Plan)**  
 
-## Pending Enhancements and Observations.
+-----------------------
 
+## Pending Enhancements and Observations.
 Following we have a list of pending items to be enhance/fixed. 
 Each item will be removed as they are addressed.  
 

@@ -12,9 +12,9 @@ Each policy is composed of following attributes:
 - name: Policy unique identifier name.  
 - hourPrice: Price stablished per hour for this policy.  
 - fixedAmount: Fixed amount to pay. By default this amount is 0.
-- priceFormula = Stablished formula in order to calculate final price to charge.  
-The formula is an String with a mathematical operation including the variable fa (fixed amount), hp (hour price) and 
-nh (hours that car used parking spot at checkout). Those variable **MUST** be included as part of the formula.   
+- priceFormula: Stablished formula in order to calculate final price to charge.  
+The formula is an string with a mathematical operation including variables 'fa' (fixed amount), 'hp' (hour price) and 
+'nh' (hours that car used parking spot at checkout). Those variables **MUST** be included as part of the formula.   
 By default the formula to apply is "fa + hp*nh".  
 
 ## Scope: Private 

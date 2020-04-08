@@ -15,3 +15,5 @@ Otherwise set it as false.
 
 Under "TestPlan" thread, there are test urls for each endpoint available in the system. 
 You can change accordingly to your needs. 
+
+[Back To README](../README.md#Testing)
