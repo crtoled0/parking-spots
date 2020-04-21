@@ -2,7 +2,7 @@
 
 # ParkingSpot
 
-## **Path: /parking-spots/ParkingSpot**  
+## **Path: /ParkingSpot**  
 
 ## Description
 Endpoint that works as CRUD maintainer of parking spots available in the system.  
@@ -38,9 +38,9 @@ So any dummy value for know will grant access to the service
 ### **Request Examples**  
 
 ```
-GET http://localhost:8080/parking-spots/ParkingSpot
+GET http://localhost:7005/ParkingSpot
 
-GET http://localhost:8080/parking-spots/ParkingSpot?filter=B0
+GET http://localhost:7005/ParkingSpot?filter=B0
 
 ```
 
@@ -126,7 +126,7 @@ JSON Array Structure of new parking spots
 
 ### **Request Example:**  
 ```
-POST http://localhost:8080/parking-spots/ParkingSpot
+POST http://localhost:7005/ParkingSpot
 BODY:  [{   "identifier": "B005",
             "type": "20kw",
             "pricePolicy": "policy-20kw"
@@ -165,16 +165,15 @@ Endpoint to edit Parking Spot.
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
 So any dummy value for know will grant access to the service  
-### **Params:**  
-N/A
+### **Path Variable:**  
+- id: Indentifier of Parking Spot to update
 ### **Request Body:**  
 JSON Structure of parking spot to modify
 
 ### **Request Example:**  
 ```
-PUT http://localhost:8080/parking-spots/ParkingSpot
+PUT http://localhost:7005/ParkingSpot/B007
 BODY:  {
-            "identifier": "B007",
             "type": "standard",
             "pricePolicy": "standard-policy",
             "available": true,
@@ -202,12 +201,12 @@ Endpoint to remove parking spot from the system.
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
 So any dummy value for know will grant access to the service  
-### **Params:**  
+### **Path Variable:**  
 - id (mandatory): Identifier of parking spot to remove.
 
 ### **Request Example:**  
 ```
-DELETE http://localhost:8080/parking-spots/ParkingSpot?id=B001
+DELETE http://localhost:7005/ParkingSpot/B001
 
 ```
 

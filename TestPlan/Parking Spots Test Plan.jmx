@@ -12,6 +12,29 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Main Parameters" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="app_host" elementType="Argument">
+            <stringProp name="Argument.name">app_host</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.desc">Host Where application is hosted</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="app_port" elementType="Argument">
+            <stringProp name="Argument.name">app_port</stringProp>
+            <stringProp name="Argument.value">7005</stringProp>
+            <stringProp name="Argument.desc">Port Where application it&apos;s hosted</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="doesPopulate" elementType="Argument">
+            <stringProp name="Argument.name">doesPopulate</stringProp>
+            <stringProp name="Argument.value">false</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Flag that if it&apos;s true. It will populate database with test data.</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Populate" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">stopthread</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -27,17 +50,6 @@
         <stringProp name="TestPlan.comments">Populate Database With Initial temptative data. This thread can be remove if not needed.</stringProp>
       </ThreadGroup>
       <hashTree>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="doesPopulate" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="doesPopulate" elementType="Argument">
-              <stringProp name="Argument.name">doesPopulate</stringProp>
-              <stringProp name="Argument.value">true</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-          <stringProp name="TestPlan.comments">	</stringProp>
-        </Arguments>
-        <hashTree/>
         <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
           <stringProp name="IfController.condition">${doesPopulate}</stringProp>
           <boolProp name="IfController.evaluateAll">true</boolProp>
@@ -60,11 +72,11 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.10</stringProp>
-            <stringProp name="HTTPSampler.port">7001</stringProp>
+            <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+            <stringProp name="HTTPSampler.port">${app_port}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/parking-spots/PricePolicy</stringProp>
+            <stringProp name="HTTPSampler.path">/PricePolicy</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -81,6 +93,10 @@
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Authorization</stringProp>
                   <stringProp name="Header.value">12323</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
                 </elementProp>
               </collectionProp>
             </HeaderManager>
@@ -102,11 +118,11 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.10</stringProp>
-            <stringProp name="HTTPSampler.port">7001</stringProp>
+            <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+            <stringProp name="HTTPSampler.port">${app_port}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/parking-spots/PricePolicy</stringProp>
+            <stringProp name="HTTPSampler.path">/PricePolicy</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -123,6 +139,10 @@
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Authorization</stringProp>
                   <stringProp name="Header.value">12323</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
                 </elementProp>
               </collectionProp>
             </HeaderManager>
@@ -144,11 +164,11 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.10</stringProp>
-            <stringProp name="HTTPSampler.port">7001</stringProp>
+            <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+            <stringProp name="HTTPSampler.port">${app_port}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/parking-spots/PricePolicy</stringProp>
+            <stringProp name="HTTPSampler.path">/PricePolicy</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -165,6 +185,10 @@
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Authorization</stringProp>
                   <stringProp name="Header.value">12323</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
                 </elementProp>
               </collectionProp>
             </HeaderManager>
@@ -290,11 +314,11 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">192.168.0.10</stringProp>
-            <stringProp name="HTTPSampler.port">7001</stringProp>
+            <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+            <stringProp name="HTTPSampler.port">${app_port}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/parking-spots/ParkingSpot</stringProp>
+            <stringProp name="HTTPSampler.path">/ParkingSpot</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -311,6 +335,10 @@
                 <elementProp name="" elementType="Header">
                   <stringProp name="Header.name">Authorization</stringProp>
                   <stringProp name="Header.value">12323</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
                 </elementProp>
               </collectionProp>
             </HeaderManager>
@@ -348,11 +376,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/PricePolicy</stringProp>
+          <stringProp name="HTTPSampler.path">/PricePolicy</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -370,6 +398,10 @@
                 <stringProp name="Header.name">Authorization</stringProp>
                 <stringProp name="Header.value">12323</stringProp>
               </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
@@ -378,11 +410,11 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/PricePolicy</stringProp>
+          <stringProp name="HTTPSampler.path">/PricePolicy</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -416,11 +448,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/PricePolicy</stringProp>
+          <stringProp name="HTTPSampler.path">/PricePolicy</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -458,11 +490,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/PricePolicy</stringProp>
+          <stringProp name="HTTPSampler.path">/PricePolicy/temporal-policy-7</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -480,27 +512,23 @@
                 <stringProp name="Header.name">Authorization</stringProp>
                 <stringProp name="Header.value">12323</stringProp>
               </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DELETE Policy (Remove)" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="id" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">temporal-policy-7</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">id</stringProp>
-              </elementProp>
-            </collectionProp>
+            <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/PricePolicy</stringProp>
+          <stringProp name="HTTPSampler.path">/PricePolicy/temporal-policy-7</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -526,11 +554,11 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/ParkingSpot</stringProp>
+          <stringProp name="HTTPSampler.path">/ParkingSpot</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -557,18 +585,18 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="filter" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">filter</stringProp>
+                <stringProp name="Argument.value">D00</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">filter</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/ParkingSpot</stringProp>
+          <stringProp name="HTTPSampler.path">/ParkingSpot</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -605,11 +633,11 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/ParkingSpot</stringProp>
+          <stringProp name="HTTPSampler.path">/ParkingSpot/D002</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -627,27 +655,23 @@
                 <stringProp name="Header.name">Authorization</stringProp>
                 <stringProp name="Header.value">12323</stringProp>
               </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
             </collectionProp>
           </HeaderManager>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="DELETE PS (Remove)" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="id" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">D002</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">id</stringProp>
-              </elementProp>
-            </collectionProp>
+            <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/ParkingSpot</stringProp>
+          <stringProp name="HTTPSampler.path">/ParkingSpot/D002</stringProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -671,21 +695,13 @@
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Checkin50kw" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="carType" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">50kw</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">carType</stringProp>
-              </elementProp>
-            </collectionProp>
+            <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/ParkingSpotMan</stringProp>
+          <stringProp name="HTTPSampler.path">/ParkingSpotMan/50kw</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -711,11 +727,11 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/ParkingSpotMan?parkIdentifier=A006</stringProp>
+          <stringProp name="HTTPSampler.path">/ParkingSpotMan/A006</stringProp>
           <stringProp name="HTTPSampler.method">PUT</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -726,7 +742,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Header" enabled="true">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Headers" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Content-Type</stringProp>
@@ -740,11 +756,11 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">localhost</stringProp>
-          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.domain">${app_host}</stringProp>
+          <stringProp name="HTTPSampler.port">${app_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/parking-spots/ParkingSpotMan?parkIdentifier=A006</stringProp>
+          <stringProp name="HTTPSampler.path">/ParkingSpotMan/A006</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

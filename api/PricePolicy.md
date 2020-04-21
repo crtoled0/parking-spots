@@ -2,7 +2,7 @@
 
 # PricePolicy
 
-## **Path: /parking-spots/PricePolicy**  
+## **Path: /PricePolicy**  
 
 ## Description
 Endpoint that works as CRUD maintainer of parking price policies available in the system.  
@@ -43,9 +43,9 @@ So any dummy value for know will grant access to the service
 ### **Request Examples**  
 
 ```
-GET http://localhost:8080/parking-spots/PricePolicy
+GET http://localhost:7005/PricePolicy
 
-GET http://localhost:8080/parking-spots/PricePolicy?filter=kw
+GET http://localhost:7005/PricePolicy?filter=kw
 
 ```
 
@@ -88,7 +88,7 @@ N/A
 
 ### **Request Example:**  
 ```
-POST http://localhost:8080/parking-spots/PricePolicy
+POST http://localhost:7005/PricePolicy
 BODY:  {
             "name": "standard-policy",
             "hourPrice": 5.0,
@@ -124,16 +124,15 @@ Endpoint to edit policy from the system.
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
 So any dummy value for know will grant access to the service
-### **Params:**  
-N/A
+### **Path Variable:**  
+- id (mandatory): Policy's id to update. 
 ### **Request Body:**  
 JSON Structure of policy to modify
 
 ### **Request Example:**  
 ```
-PUT http://localhost:8080/parking-spots/PricePolicy
+PUT http://localhost:7005/PricePolicy/standard-policy
 BODY:  {
-            "name": "standard-policy",
             "hourPrice": 8.0,
             "fixedAmount": 3.0,
             "priceFormula": "nh > 0.1?(fa + hp*nh):0"
@@ -160,12 +159,12 @@ Endpoint to remove policy from the system.
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
 So any dummy value for know will grant access to the service.    
-### **Params:**  
+### **Path Variable:**  
 - id (mandatory): Identifier name of policy to delete
 
 ### **Request Example:**  
 ```
-DELETE http://localhost:8080/parking-spots/PricePolicy?id=policy-test-20kw
+DELETE http://localhost:7005/PricePolicy/policy-test-20kw
 
 ```
 

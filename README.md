@@ -3,45 +3,45 @@
 Back-End Application to manage parking spots
 
 ## Prerequisites  
-- Java JDK 9 or higher.   
+- Java JDK 9 or higher (Configured JAVA_HOME as environment variable).   
 - MongoDB 4.0.10 or higher.  
-- Any Application Server that support java web applications.  
-  For the purpose of this project Apache Tomcat/9.0.33 was used.  
-- Apache ANT.  
 -----------------------
 ## Installation  
 - Step 1:  Download project.
 ```
 git clone https://github.com/wutzcrtoledo/parking-spots.git
 ```  
-- Step 2: On downloaded folder among other files in root.  
-We'll be able to see files build.properties and config.properties.  
+- Step 2: Configure Properties.  
+Find properties file located at path "src/resources".  
+On this file we can see the following properties.  
 ```
-build.properties  
-appserver.home = D:\\WorkP\\programs\\apache-tomcat-9.0.33
-appserver.lib = ${appserver.home}/lib
-```
-- On this file we can see properties related to our application server installed. In our case is Tomcat. Change accordingly to your environment.  
-```
-config.properties
 mongo.url=mongodb://localhost:27017
-mongo.db=parking-db
+mongo.db=parking-dock-db
+server.port=7005
 ```  
-- On this file we config our mongo database connection. You can keep or change this file.
-In any case make sure the database named as in 
-property "mongo.db" is created in your local MongoDB.  
+- "mongo.url" represents the connection string to your mongodb database.  
+"mongo.db" is database name which the application would connect to. This database must exist in your local MongoDB.  
+"server.port" Is the port where our application will be listening for requests. In our case we are using 7005.
 
-- Step 3: Build Project.  
-Open a terminal in root folder of our project and execute build.xml. 
+Modify properties based on your local configuration 
+
+- Step 3: Build and Run Project.  
+Open a terminal in root folder of our project and type  
+
+**Windows**
 ```
-> ANT
-```  
+> .\gradlew bootRun
+```
+**Linux/Mac**
+```
+> ./gradlew bootRun
+```
 
-- Step 4: If everything went well. We should see a folder /dist.
-Inside we'll find 'parking-spots.war' file.  
-We now need to deploy this war file in your application server.  
+- Step 4: If everything went well. We should see an screen like this
 
-At this point. Backend application should be listening fo requests.   
+![Boot Sprint Running](./design/insta2.png)
+
+At this point. Backend application should be listening fo requests at configured port.   
 We can start running our endpoints. 
 
 -----------------------
@@ -57,7 +57,7 @@ Application Rest API **[HERE](api/index.md#API-Parking-Spots)**
 -----------------------
 
 ## Testing  
-Data Populate and Test Plan **[HERE](TestPlan/README.md#JMeter-Test-Plan)**  
+Data Populate and Test Plan **[HERE](TestPlan/README.md#Test-Plan)**  
 
 -----------------------
 
@@ -88,9 +88,9 @@ endpoint header.
 On endpoint where no filter is included. The system is returning all results at once. For largest business where 
 we can have thousands of parking spots. We need to add a proper bulk pagination response.
 
-- **Secure MongoDB Connection:**   
-Current solution use an open MongoDB connection. This should be protected by password authentication. 
-
-- **Move Development Implementation to newer technologies:**  
+- ~~**Move Development Implementation to newer technologies:**  
 Now we are compiling and packaging through ANT. Plus, dependencies are uploaded to the repository.
-This is not suitable for new age projects, where there are tools to make this simpler. 
+This is not suitable for new age projects, where there are tools to make this simpler.~~
+
+- **Add properties option to handlered as environment variable:**  
+A secure way to save application creadentials is via environment variables. We should support environment variables for our properties.

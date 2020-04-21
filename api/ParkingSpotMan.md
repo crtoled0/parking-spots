@@ -2,7 +2,7 @@
 
 # ParkingSpotMan
 
-## **Path: /parking-spots/ParkingSpotMan**  
+## **Path: /ParkingSpotMan**  
 
 ## Description
 Endpoint that manages car visits. Allowing to assign a parking spot on check-in and 
@@ -25,13 +25,13 @@ Endpoint to retrieve and reserve last available parking spot for a given car typ
 Car types can be 'standard', '20kw' and '50kw'.
 
 ### **Method: GET**
-### **Params:**  
+### **Path Variable:**  
 - carType (mandatory): Car type. Can be one of these values: 'standard', '20kw' and '50kw'
 
 ### **Request Examples**  
 
 ```
-GET http://localhost:8080/parking-spots/ParkingSpotMan?carType=50kw
+GET http://localhost:7005/ParkingSpotMan/50kw
 
 ```
 
@@ -62,12 +62,12 @@ GET http://localhost:8080/parking-spots/ParkingSpotMan?carType=50kw
 Endpoint to create single or multiple parking spots in the system.
 
 ### **Method: PUT**
-### **Params:**  
+### **Path Variable:**  
 - parkIdentifier (mandatory): Parking spot identifier previously obtained from Checkin. 
 
 ### **Request Example:**  
 ```
-PUT http://localhost:8080/parking-spots/ParkingSpotMan?parkIdentifier=B006
+PUT http://localhost:7005/ParkingSpotMan/B006
 
 ```
 
@@ -91,12 +91,12 @@ PUT http://localhost:8080/parking-spots/ParkingSpotMan?parkIdentifier=B006
 After checkout this service needs to be called in order to confirm payment and system release parking spot.
 
 ### **Method: POST**
-### **Params:**  
+### **Path Variable:**  
 - parkIdentifier (mandatory): Parking spot identifier previously obtained from Checkin.
 
 ### **Request Example:**  
 ```
-POST http://localhost:8080/parking-spots/ParkingSpotMan?parkIdentifier=B006
+POST http://localhost:7005/ParkingSpotMan/B006
 
 ```
 
