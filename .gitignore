@@ -1,6 +1,4 @@
-/.classpath-eclipse
-/.project
 /build
 /.settings
 /.classpath
-/classpath-local-new
+.gradle

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TestParkingSpotManRest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TestParkingSpotManRest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.parking.view.html">com.parking.view</a> &gt; TestParkingSpotManRest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">3.183s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">checkin()</td>
+<td class="success">0.360s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">checkinWrongType()</td>
+<td class="success">1.827s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">checkoutOK()</td>
+<td class="success">0.944s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">checkoutOverFreeSpot()</td>
+<td class="success">0.017s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">confirm()</td>
+<td class="success">0.021s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">confirmNotYetCheckedOut()</td>
+<td class="success">0.014s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>10:16:29.895 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+10:16:30.015 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+10:16:30.171 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.parking.view.TestParkingSpotManRest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
+10:16:30.433 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.parking.view.TestParkingSpotManRest]: class path resource [com/parking/view/TestParkingSpotManRest-context.xml] does not exist
+10:16:30.437 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.parking.view.TestParkingSpotManRest]: class path resource [com/parking/view/TestParkingSpotManRestContext.groovy] does not exist
+10:16:30.439 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.parking.view.TestParkingSpotManRest]: no resource found for suffixes {-context.xml, Context.groovy}.
+10:16:30.838 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.parking.view.TestParkingSpotManRest]
+10:16:30.998 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [com.parking.view.TestParkingSpotManRest]: using defaults.
+10:16:31.007 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+10:16:31.089 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+10:16:31.090 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+10:16:31.091 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@55c20bed, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3acd71e3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@35e3fdee, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@41d3d293, org.springframework.test.context.support.DirtiesContextTestExecutionListener@40b2427, org.springframework.test.context.event.EventPublishingTestExecutionListener@55980f2c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7fbe94fc, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@202686d2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7d51b4ed, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@68a53504, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@63b75598]
+10:16:31.104 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@27e4fb4c testClass = TestParkingSpotManRest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4c9d19e8 testClass = TestParkingSpotManRest, locations = '{}', classes = '{class com.parking.view.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@76ba19bf, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@cfffcb68, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2adbb89c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@5af50023, [ImportsContextCustomizer@67b4bfe9 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7da6ba0c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@157ebd27, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+10:16:31.164 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@27e4fb4c testClass = TestParkingSpotManRest, testInstance = com.parking.view.TestParkingSpotManRest@6ef00e0b, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4c9d19e8 testClass = TestParkingSpotManRest, locations = '{}', classes = '{class com.parking.view.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@76ba19bf, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@cfffcb68, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@2adbb89c, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@5af50023, [ImportsContextCustomizer@67b4bfe9 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7da6ba0c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@157ebd27, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]].
+10:16:32.281 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.6.RELEASE)
+
+2020-04-21 10:16:34.108  INFO 4000 --- [    Test worker] com.parking.view.TestParkingSpotManRest  : Starting TestParkingSpotManRest on CRTOLEDO-CL with PID 4000 (started by CRTOLEDO in D:\WorkP\projects\ParkingSlots)
+2020-04-21 10:16:34.124  INFO 4000 --- [    Test worker] com.parking.view.TestParkingSpotManRest  : No active profile set, falling back to default profiles: default
+localUrl [mongodb://root:jaururo2009@localhost:5001] dbName [parking-dock-db] PropertyExam [mongodb://root:jaururo2009@localhost:5001]
+2020-04-21 10:16:37.433  INFO 4000 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:5001], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-04-21 10:16:37.662  INFO 4000 --- [    Test worker] org.mongodb.driver.cluster               : Cluster description not yet available. Waiting for 30000 ms before timing out
+2020-04-21 10:16:37.686  INFO 4000 --- [-localhost:5001] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:13}] to localhost:5001
+2020-04-21 10:16:37.702  INFO 4000 --- [-localhost:5001] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:5001, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=10109200}
+2020-04-21 10:16:38.001  INFO 4000 --- [    Test worker] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:14}] to localhost:5001
+localUrl [mongodb://root:jaururo2009@localhost:5001] dbName [parking-dock-db] PropertyExam [mongodb://root:jaururo2009@localhost:5001]
+2020-04-21 10:16:38.046  INFO 4000 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:5001], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-04-21 10:16:38.051  INFO 4000 --- [    Test worker] org.mongodb.driver.cluster               : Cluster description not yet available. Waiting for 30000 ms before timing out
+2020-04-21 10:16:38.073  INFO 4000 --- [-localhost:5001] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:15}] to localhost:5001
+2020-04-21 10:16:38.076  INFO 4000 --- [-localhost:5001] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:5001, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 5]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2949300}
+2020-04-21 10:16:38.138  INFO 4000 --- [    Test worker] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:16}] to localhost:5001
+2020-04-21 10:16:39.653  INFO 4000 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-21 10:16:40.684  INFO 4000 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-04-21 10:16:40.684  INFO 4000 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-04-21 10:16:40.737  INFO 4000 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 53 ms
+2020-04-21 10:16:40.854  INFO 4000 --- [    Test worker] com.parking.view.TestParkingSpotManRest  : Started TestParkingSpotManRest in 8.489 seconds (JVM running for 18.485)
+Let's inspect the beans provided by Spring Boot:
+application
+applicationTaskExecutor
+basicErrorController
+beanNameHandlerMapping
+beanNameViewResolver
+commandLineRunner
+defaultServletHandlerMapping
+defaultValidator
+defaultViewResolver
+dispatcherServlet
+dispatcherServletPath
+error
+errorAttributes
+errorPageCustomizer
+formContentFilter
+handlerExceptionResolver
+handlerFunctionAdapter
+httpRequestHandlerAdapter
+jacksonObjectMapper
+jacksonObjectMapperBuilder
+jsonComponentModule
+mappingJackson2HttpMessageConverter
+messageConverters
+methodValidationPostProcessor
+mockMvc
+mockMvcBuilder
+mvcContentNegotiationManager
+mvcConversionService
+mvcHandlerMappingIntrospector
+mvcPathMatcher
+mvcResourceUrlProvider
+mvcUriComponentsContributor
+mvcUrlPathHelper
+mvcValidator
+mvcViewResolver
+org.springframework.boot.autoconfigure.AutoConfigurationPackages
+org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration
+org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration
+org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration
+org.springframework.boot.autoconfigure.http.JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration
+org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory
+org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration
+org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration
+org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration
+org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration
+org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$ParameterNamesModuleConfiguration
+org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
+org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration
+org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration
+org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration
+org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter
+org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration
+org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration
+org.springframework.boot.context.internalConfigurationPropertiesBinder
+org.springframework.boot.context.internalConfigurationPropertiesBinderFactory
+org.springframework.boot.context.properties.ConfigurationBeanFactoryMetadata
+org.springframework.boot.context.properties.ConfigurationPropertiesBeanDefinitionValidator
+org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
+org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration
+org.springframework.boot.test.context.ImportsContextCustomizer$ImportsCleanupPostProcessor
+org.springframework.boot.test.mock.mockito.MockitoPostProcessor
+org.springframework.boot.test.mock.mockito.MockitoPostProcessor$SpyPostProcessor
+org.springframework.context.annotation.internalAutowiredAnnotationProcessor
+org.springframework.context.annotation.internalCommonAnnotationProcessor
+org.springframework.context.annotation.internalConfigurationAnnotationProcessor
+org.springframework.context.event.internalEventListenerFactory
+org.springframework.context.event.internalEventListenerProcessor
+parameterNamesModule
+parkingSpotManRest
+preserveErrorControllerTargetClassPostProcessor
+requestContextFilter
+requestMappingHandlerAdapter
+requestMappingHandlerMapping
+resourceHandlerMapping
+routerFunctionMapping
+server-org.springframework.boot.autoconfigure.web.ServerProperties
+simpleControllerHandlerAdapter
+spring.http-org.springframework.boot.autoconfigure.http.HttpProperties
+spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties
+spring.mvc-org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties
+spring.resources-org.springframework.boot.autoconfigure.web.ResourceProperties
+spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties
+springBootMockMvcBuilderCustomizer
+standardJacksonObjectMapperBuilderCustomizer
+stringHttpMessageConverter
+taskExecutorBuilder
+viewControllerHandlerMapping
+viewResolver
+welcomePageHandlerMapping
+Original Person Model: com.parking.dto.pojo.ParkingSpotPO@36f77145
+{&quot;ok&quot;:true,&quot;result&quot;:{&quot;identifier&quot;:&quot;A005&quot;,&quot;checkedIn&quot;:&quot;2020-04-21T13:16:42.778534300Z&quot;,&quot;type&quot;:&quot;20kw&quot;},&quot;items&quot;:null}
+A005
+checkInTime [2020-04-21T13:16:42.778Z]  checkOutTime: [2020-04-21T13:16:43.167548700Z]
+0.0
+nh &gt; 0.2?(fa + hp*nh):fa
+0.0 &gt; 0.2?(10.0 + 5.0*0.0):10.0
+10.0
+toPay: 10.0
+getToPay: 10.0
+Original Person Model: com.parking.dto.pojo.ParkingSpotPO@40420c9f
+getToPay: 10.0
+Original Person Model: com.parking.dto.pojo.ParkingSpotPO@3e522b2b
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.3</a> at Apr 21, 2020, 10:16:49 AM</p>
+</div>
+</div>
+</body>
+</html>
