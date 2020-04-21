@@ -12,7 +12,7 @@ Back-End Application to manage parking spots
 git clone https://github.com/wutzcrtoledo/parking-spots.git
 ```  
 - Step 2: Configure Properties.  
-Find properties file located at path "src/resources".  
+Find properties file located at path "src/main/resources".  
 On this file we can see the following properties.  
 ```
 mongo.url=mongodb://localhost:27017
@@ -36,6 +36,15 @@ Open a terminal in root folder of our project and type
 ```
 > ./gradlew bootRun
 ```
+Observation: At some linux ditributions you might have priviledges issue over file "gradlew" to be executed. If this is your case. You can grand access to that file for execution.  
+An example of this for Ubuntu would be: 
+
+```
+> sudo chmod 755 ./gradlew
+```
+
+Then you try again step 3.  
+
 
 - Step 4: If everything went well. We should see an screen like this
 
