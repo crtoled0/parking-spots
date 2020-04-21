@@ -23,14 +23,14 @@ It should looks like this.
 
 ![Test Report](screen2.png)
 
-You can see an example of this report at ["TestPlan/test-report-example/index.html](TestPlan/test-report-example/index.html?target=_blank){:target="_blank"}.
+You can see an example of this report at "TestPlan/test-report-example/index.html".
 
 
 ## JMeter Test Plan.
 
 ### Prerequisite
 Being familiar on basic concepts of JMeter application.  
-Documentation can be found at [https://jmeter.apache.org/](https://jmeter.apache.org/){:target="_blank"}
+Documentation can be found at [https://jmeter.apache.org/](https://jmeter.apache.org/)
 
 In order to populate and also test services. A test plan compatible with JMeter was created.   
 You can find this file under "TestPlan" folder called "Parking Spots Test Plan.jmx".  

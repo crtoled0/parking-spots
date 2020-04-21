@@ -41,13 +41,8 @@ Open a terminal in root folder of our project and type
 
 ![Boot Sprint Running](./design/insta2.png)
 
-At this point. Backend application should be listening fo requests at configured port.   
+At this point. Backend application should be listening for requests at configured port.   
 We can start running our endpoints. 
-
------------------------
-
-## Requirements, Design and Architecture    
-This small project has an initial design. You can take a look **[HERE](design/index.md#Design-Project-Parking-Spots)**  
 
 -----------------------
 
@@ -58,6 +53,11 @@ Application Rest API **[HERE](api/index.md#API-Parking-Spots)**
 
 ## Testing  
 Data Populate and Test Plan **[HERE](TestPlan/README.md#Test-Plan)**  
+
+-----------------------
+
+## Requirements, Design and Architecture    
+This small project has an initial design. You can take a look **[HERE](design/index.md#Design-Project-Parking-Spots)**  
 
 -----------------------
 

@@ -2,8 +2,6 @@
 
 # PricePolicy
 
-## **Path: /PricePolicy**  
-
 ## Description
 Endpoint that works as CRUD maintainer of parking price policies available in the system.  
 Every parking spot is assigned to a particular price policy. This way the system will know 
@@ -33,6 +31,7 @@ By default the formula to apply is "fa + hp*nh".
 
 Endpoint to retrieve policies from the system.
 
+### **Path: /PricePolicy**
 ### **Method: GET**  
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
@@ -77,6 +76,7 @@ GET http://localhost:7005/PricePolicy?filter=kw
 
 Endpoint to create a new policy into the system.
 
+### **Path: /PricePolicy**
 ### **Method: POST**  
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
@@ -90,7 +90,6 @@ N/A
 ```
 POST http://localhost:7005/PricePolicy
 BODY:  {
-            "name": "standard-policy",
             "hourPrice": 5.0,
             "fixedAmount": 0.0,
             "priceFormula": "nh > 0.1?(fa + hp*nh):0"
@@ -120,6 +119,7 @@ BODY:  {
 
 Endpoint to edit policy from the system.
 
+### **Path: /PricePolicy/{id}**
 ### **Method: PUT**  
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
@@ -155,6 +155,7 @@ BODY:  {
 
 Endpoint to remove policy from the system.
 
+### **Path: /PricePolicy/{id}**
 ### **Method: DELETE**  
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 

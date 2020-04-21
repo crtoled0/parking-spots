@@ -2,8 +2,6 @@
 
 # ParkingSpot
 
-## **Path: /ParkingSpot**  
-
 ## Description
 Endpoint that works as CRUD maintainer of parking spots available in the system.  
 Each parking spot is composed of following attributes:  
@@ -28,6 +26,7 @@ Each parking spot is composed of following attributes:
 
 Endpoint to retrieve parking spots from the system.
 
+### **Path: /ParkingSpot** 
 ### **Method: GET**
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
@@ -115,6 +114,7 @@ GET http://localhost:7005/ParkingSpot?filter=B0
 
 Endpoint to create single or multiple parking spots in the system.
 
+### **Path: /ParkingSpot** 
 ### **Method: POST**
 ### **Headers:**   
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
@@ -161,6 +161,7 @@ BODY:  [{   "identifier": "B005",
 
 Endpoint to edit Parking Spot.
 
+### **Path: /ParkingSpot/{id}** 
 ### **Method: PUT**  
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
@@ -197,6 +198,7 @@ BODY:  {
 
 Endpoint to remove parking spot from the system.
 
+### **Path: /ParkingSpot/{id}** 
 ### **Method: DELETE**
 ### **Headers:** 
 - Authorization (mandatory): Must include it although Auth is not yet implemented. 
